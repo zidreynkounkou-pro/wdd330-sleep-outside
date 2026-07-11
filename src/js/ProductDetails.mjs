@@ -12,7 +12,7 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 
 export default class ProductDetails {
-    constructorn(productId, dataSource) {
+    constructor(productId, dataSource) {
 
         this.productId = productId;
         this.product = {};
