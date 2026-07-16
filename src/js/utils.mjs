@@ -45,7 +45,7 @@ export function renderListWithTemplate(template, parentElement, list, position =
 
 
 export function renderWithTemplate(template, parentElement, data, callback) {
-  // Inserting the temple into the template
+  // Inserting the parent element into the template
   parentElement.innerHTML = template;
  // Check the callback 
   if (callback) {
@@ -57,10 +57,10 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 
 // This asynchronous function fetches the content of the HTML file given a path. 
 // The response to the fetch is converted to text and returns the HTML content as a string
-export async function loadTemplate(url)
+export async function loadTemplate(path)
 {
-  const getUrl = await  fetch(url);
-  const template = await getUrl.text();
+  const varPath = await  fetch(path);
+  const template = await varPath.text();
   return template;
 }
 
@@ -69,17 +69,10 @@ export async function loadTemplate(url)
 export async function loadHeaderFooter() {
   
   const headerTemplate = await loadTemplate("../partials/header.html");
-  const headerElement = document.getElementById("main-header");
-
-  if (headerElement) {
-    
-    renderListWithTemplate(headerTemplate, headerElement);
-  }
-  
   const footerTemplate = await loadTemplate("../partials/footer.html");
+  const headerElement = document.getElementById("main-header");
   const footerElement = document.getElementById("main-footer");
-  if (footerElement) {
-
-    renderListWithTemplate(footerTemplate, footerElement);
-  }
+    
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }
