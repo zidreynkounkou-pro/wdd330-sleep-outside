@@ -41,3 +41,38 @@ export function renderListWithTemplate(template, parentElement, list, position =
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 };
+
+
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  // Inserting the parent element into the template
+  parentElement.innerHTML = template;
+ // Check the callback 
+  if (callback) {
+    callback(data);
+  }
+}
+
+
+
+// This asynchronous function fetches the content of the HTML file given a path. 
+// The response to the fetch is converted to text and returns the HTML content as a string
+export async function loadTemplate(path)
+{
+  const varPath = await  fetch(path);
+  const template = await varPath.text();
+  return template;
+}
+
+
+// Header function
+export async function loadHeaderFooter() {
+  
+  const headerTemplate = await loadTemplate("/partials/header.html");
+  const footerTemplate = await loadTemplate("/partials/footer.html");
+  const headerElement = document.getElementById("main-header");
+  const footerElement = document.getElementById("main-footer");
+    
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
