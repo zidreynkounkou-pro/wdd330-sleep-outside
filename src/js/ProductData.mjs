@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_SERVER_URL
+const baseURL = import.meta.env.VITE_SERVER_URL;
 
 
 function convertToJson(res) {
@@ -10,9 +10,6 @@ function convertToJson(res) {
 }
 
 export default class ProductData {
-  constructor() {
-    
-  }
   async getData(category) {
   const response = await fetch(`${baseURL}products/search/${category} `);
   const data = await convertToJson(response);
