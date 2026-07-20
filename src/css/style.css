@@ -26,6 +26,14 @@ body {
   color: var(--dark-grey);
 }
 
+.product-grid {
+  display: flex;
+}
+
+.product-grid a {
+  text-decoration: none;
+}
+
 img {
   max-width: 100%;
 }
