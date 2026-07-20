@@ -28,7 +28,7 @@ export default class ProductList {
 
     async init() {
         // Using await to solve the Promise
-      const list = await this.dataSource.getData();
+     const list = await this.dataSource.getData(this.category);
       this.renderList(list);
   }
   
