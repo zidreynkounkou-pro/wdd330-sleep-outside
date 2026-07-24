@@ -13,6 +13,6 @@ const listElement = document.querySelector(".product-list");
 const myList = new ProductList(category, dataSource, listElement);
 // finally call the init method to show the products
 myList.init();
- const topProduct = new URLSearchParams(window.location.search).get("category");
+const topProduct = new URLSearchParams(window.location.search).get("category");
 const titleElement = document.querySelector(".title");
 titleElement.textContent = ` ${topProduct}`;
