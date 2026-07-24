@@ -21,52 +21,70 @@
 
 
 
-        <form action="">
+        <form name="checkout">
+          <input type="hidden" name="orderDate" id="orderDate">
           <fieldset>
             <legend>Customer</legend>
             <label for="fname">First Name</label>
-            <input type="text" id="fname" required>
+            <input type="text" id="fname" name="fname" required>
 
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" required>
+            <input type="text" id="lname" name="lname" required>
           </fieldset>
 
           <fieldset>
             <legend>Billing & Shipping Address</legend>
             <label for="street">Street Address</label>
-            <input type="text" id="street" required>
+            <input type="text" id="street" name="street" required>
 
             <label for="city">City</label>
-            <input type="text" id="city" required>
+            <input type="text" id="city" name="city" required>
 
             <label for="state">State</label>
             <input type="text" id="state" required>
 
-            <label for="zipcode"></label> required
-            <input type="text" id="zipcode">
+            <label for="zip">Zip</label>
+            <input type="text" name="zip" id="zip">
           </fieldset>
 
           <fieldset>
             <legend>Payment</legend>
-            <label for="credit">Credit Card Number</label>
-            <input type="text" id="credit" placeholder="1234 2221 4535 4634" required>
+            <label for="cardNumber">Credit Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 2221 4535 4634" required>
             
-            <label for="exp">Expiration Date</label>
-            <input type="text" id="exp" placeholder="MM/YY" required>
+            <label for="expiration">Expiration Date</label>
+            <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required>
 
             <label for="sc">Security Code</label>
             <input type="text" id="sc" placeholder="123" required>
           </fieldset>
+ <fieldset class="checkout-summary">
+          <legend>Order Summary</legend>
 
-          <button type="submit">Chekout Button</button>
+          <div class="order__summary">
+            <div>Items</div>
+            <div id="num-items"></div>
+            <div>Subtotal</div>
+            <div id="cartTotal"></div>
+            <div>Tax</div>
+            <div id="tax"></div>
+            <div>Shipping</div>
+            <div id="shipping"></div>
+            <div>Total</div>
+            <div id="orderTotal"></div>
+          </div>
+        </fieldset>
+        <button type="submit" id="checkoutSubmit">Checkout</button>
         </form>
-
+<!--
         <section class="calculations">
           <p class="subtotal">Subtotal:<span id="subtotal"></span></p>
           <p class="tax">Tax:<span id="tax"> $6</span></p>
           <p class="shipping-estimate">Shipping Estimate:<span id="shipping-estimate"> $10 for the first item, $2 each after that.</span></p>
           <p class="total">Order Total:<span id="total"></span></p>
         </section>
+
+      -->
 
 
       </section>
